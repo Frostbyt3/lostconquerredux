@@ -28,8 +28,25 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    AddText("I always have the worst luck...");
-                    AddOption("Sorry to hear that.", 255);
+                    AddText("Hello! Have you heard about the lottery? We have amazing");
+                    AddText(" rewards waiting for you! All you need is 1 lottery ticket.");
+                    AddText(" Each lottery ticket only costs 215 CPs.");
+                    AddOption("Let me try my luck!", 2);
+                    AddOption("Buy 1 Lottery Ticket (215 CPs)", 1);
+                    AddOption("Buy 10 Lottery Tickets (2150 CPs)", 10);
+                    AddOption("No thanks.", 255);
+                    break;
+                case 2:
+                    _client.ChangeMap(700, 40, 49);
+                    break;
+                case 1:
+                case 10:
+                    if (_client.CP >= _linkback * 215)
+                    {
+                        _client.CP -= (uint)(_linkback * 215);
+                        for (int i = 0; i < _linkback; i++)
+                            _client.CreateItem(710212);
+                    }
                     break;
             }
             AddFinish();

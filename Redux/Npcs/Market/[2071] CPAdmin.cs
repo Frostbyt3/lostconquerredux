@@ -28,9 +28,9 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    AddText("I can help you turn DragonBalls into CP.");
-                    AddOption("DragonBall (215 CP)", 1);
-                    AddOption("DBScroll (2150 CP)", 2);
+                    AddText("I can help you turn Dragonballs into Conquer Points.");
+                    AddOption("DragonBall (215 CPs)", 1);
+                    AddOption("DBScroll (2150 CPs)", 2);
                     AddOption("No thank you.", 255);
                     break;
                 case 1:

@@ -27,8 +27,9 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    AddText("Welcome to the Redux public beta! Commands are enabled for all players to test content. ");
-                    AddText("Please use the /report command to log bugs or missing features so we can finish the server quickly!");
+                    AddText("Welcome to the 'LostConquerRedux' test server! Commands are enabled for all players to test content. ");
+                    AddText("Please use the /report command to log bugs or missing features so we can finish the server ");
+                    AddText("and ensure that we have the most complete and immersive experience possible.");
                     AddOption("Thanks", 255);
                     break;
             }
