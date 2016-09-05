@@ -60,8 +60,68 @@ namespace Redux
                 {"summon", Process_Summon},
                 {"string", Process_String},
                 {"addspawn", Process_AddSpawn},
+                {"clearinv", Process_ClearInventory},
+                {"revive", Process_Revive},
+                {"reviveplayer", Process_RevivePlayer},
             };
         }
+        #region Revive
+        private static void Process_Revive(Player client, string[] command)
+        {
+            if (client.Account.Permission < PlayerPermission.GM)
+                return;
+            client.Life = client.CombatStats.MaxLife;
+            client.RemoveEffect(ClientEffect.Ghost);
+            client.RemoveEffect(ClientEffect.Dead);
+            client.Transformation = 0;
+        }
+        #endregion
+        #region RevivePlayer
+        private static void Process_RevivePlayer(Player client, string[] command)
+        {
+            if (client.Account.Permission < PlayerPermission.GM)
+                return;
+            if (command.Length < 2)
+                client.SendMessage("Error: Proper format is /reviveplayer {player}");
+            else
+            {
+                Player target = null;
+                foreach (var p in Managers.PlayerManager.Players.Values)
+                    if (p.Name.ToLower() == command[1].ToLower())
+                    {
+                        target = p;
+                        break;
+                    }
+                if (target == null)
+                    client.SendMessage(command[1] + " is not online or could not be found.");
+                else
+                {
+                    target.SendMessage("You have been revived by " + client.Name);
+                    target.Life = client.CombatStats.MaxLife;
+                    target.RemoveEffect(ClientEffect.Ghost);
+                    target.RemoveEffect(ClientEffect.Dead);
+                    target.Transformation = 0;
+                }
+            }
+        }
+        #endregion
+        #region ClearInventory
+        private static void Process_ClearInventory(Player client, string[] command)
+        {
+            if (client.Account.Permission < PlayerPermission.GM)
+                return;
+            // You need to do something like this to avoid getting enumeration errors.
+            List<Structures.ConquerItem> itemsToRemove = new List<Structures.ConquerItem>();
+            foreach (Structures.ConquerItem i in client.Inventory.Values)
+            {
+                itemsToRemove.Add(i);
+            }
+            foreach (Structures.ConquerItem i in itemsToRemove)
+                client.DeleteItem(i);
+
+            client.SendMessage("Clearing the inventory contents for " + client.Name);
+        }
+        #endregion
         private static void Process_Exit(Player client, string[] command)
         {
             client.Disconnect();
