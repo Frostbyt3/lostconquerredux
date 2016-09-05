@@ -27,7 +27,6 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    if (_client.HasEffect(Enum.ClientEffect.Black))
                     {
                         AddText("If you aren't an evildoer, you can leave here.");
                         AddOption("Let me out of here!", 1);

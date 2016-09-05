@@ -37,6 +37,22 @@ namespace Redux.Database.Domain
         public virtual uint TrainingTime { get; set; }
         public virtual DateTime OfflineTGEntered { get; set; }
         public virtual uint LuckyTimeRemaining { get; set; }
+
+        public virtual uint StoredMeteors { get; set; }
+        public virtual uint StoredDBalls { get; set; }
+        public virtual uint StoredPhoenix { get; set; }
+        public virtual uint StoredDragon { get; set; }
+        public virtual uint StoredFury { get; set; }
+        public virtual uint StoredRainbow { get; set; }
+        public virtual uint StoredKylin { get; set; }
+        public virtual uint StoredVoilet { get; set; }
+        public virtual uint StoredMoon { get; set; }
+        public virtual uint StoredTortise { get; set; }
+
+        public virtual uint IsHunter { get; set; }
+        public virtual uint MonsterID { get; set; }
+        public virtual uint MonsterKills { get; set; }
+        public virtual uint MonsterCount { get; set; }
     }
 }
 

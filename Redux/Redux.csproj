@@ -372,6 +372,10 @@
     <Compile Include="Packets\Game\[2064] Nobility.cs" />
     <Compile Include="Packets\Game\[1109] Sob Spawn.cs" />
     <Compile Include="Packets\Game\[1112] GuildMemberInfo.cs" />
+    <Compile Include="Packets\Game\[2065] MentorAction.cs" />
+    <Compile Include="Packets\Game\[2066] MentorInformation.cs" />
+    <Compile Include="Packets\Game\[2066]TestPacket.cs" />
+    <Compile Include="Packets\Game\[2067] MentorPrize.cs" />
     <Compile Include="Packets\Game\[2102] GuildMemberInfo.cs" />
     <Compile Include="Packets\Game\[1107] Guild.cs" />
     <Compile Include="Packets\Game\[1106] GuildAttrInfo.cs" />

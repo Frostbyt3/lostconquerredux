@@ -19,6 +19,37 @@ namespace Redux.Game_Server
     {
         #region Variables
         private bool disconnected = false;
+        public int Quest5delivers = 0;
+        public bool Quest1Drops = false;
+        public bool Killing1000Monster = false;
+        public bool HasSeller = false;
+        public bool HasPiller = false;
+        public uint MonsterID { get { return Character.MonsterID; } set { Character.MonsterID = value; } }
+        public uint MonsterKills { get { return Character.MonsterKills; } set { Character.MonsterKills = value; } }
+        public uint MonsterCount { get { return Character.MonsterCount; } set { Character.MonsterCount = value; } }
+        public uint IsHunter { get { return Character.IsHunter; } set { Character.IsHunter = value; } }
+        public DateTime votez = DateTime.Now;
+        public int votex = 0;
+        public Player invited;
+        public uint VIPAURA = 0;
+        public ushort due = 0;
+        public uint change = 0;
+        public uint change2 = 0;
+        public uint Newbiequest = 0;
+        public uint newbiekills = 0;
+        public uint StoredMeteors { get { return Character.StoredMeteors; } set { Character.StoredMeteors = value; } }
+        public uint StoredBalls { get { return Character.StoredDBalls; } set { Character.StoredDBalls = value; } }
+        public uint StoredDragon { get { return Character.StoredDragon; } set { Character.StoredDragon = value; } }
+        public uint StoredFury { get { return Character.StoredFury; } set { Character.StoredFury = value; } }
+        public uint StoredKylin { get { return Character.StoredKylin; } set { Character.StoredKylin = value; } }
+        public uint StoredMoon { get { return Character.StoredMoon; } set { Character.StoredMoon = value; } }
+        public uint StoredPhoenix { get { return Character.StoredPhoenix; } set { Character.StoredPhoenix = value; } }
+        public uint StoredRain { get { return Character.StoredRainbow; } set { Character.StoredRainbow = value; } }
+        public uint StoredTortise { get { return Character.StoredTortise; } set { Character.StoredTortise = value; } }
+        public uint StoredVoilet { get { return Character.StoredVoilet; } set { Character.StoredVoilet = value; } }
+        public ConquerItem SellerItem;
+        public ulong SellerItemValue = 0;
+        public KeyValuePair<uint, string> DailyRareItem;
         public NetworkClient Socket { get; private set; }
         private GameCryptography _cryptographer;
         private readonly ServerKeyExchange _exchange;
@@ -331,6 +362,12 @@ namespace Redux.Game_Server
             if (Character.HeavenBlessExpires > DateTime.Now)
                 bonus += .2;
             bonus += CombatStats.RainbowGemPct / 100.0;
+            //LuckyTime
+            if (Character.LuckyTimeRemaining != 0 && (Common.PercentSuccess(0.1)))
+            {
+                Character.Experience += (ulong)((double)_exp * bonus) * Constants.EXP_RATE * 2;
+                SendMessage("Congratulations you were so lucky that you have gained 10x Experience.");
+            }
             Character.Experience += (ulong)((double)_exp * bonus) * Constants.EXP_RATE;
             var requires = ServerDatabase.Context.LevelExp.GetById(Character.Level);
             bool uplev = false;
@@ -651,8 +688,8 @@ namespace Redux.Game_Server
                 if (Equipment.TryGetItemBySlot(loc, out item))
                     CombatStats.AddItemStats(item);
 
-            SendMessage(string.Format("Damage {0}-{1} Defense {2} Magic Resistance {3} Magic Defense {4} Maximum Health {5} Maximum Mana {6}", CombatStats.MinimumDamage, CombatStats.MaximumDamage,
-                CombatStats.Defense, CombatStats.MagicResistance, CombatStats.MagicDamage, CombatStats.MaxLife, CombatStats.MaxMana));
+            //SendMessage(string.Format("Damage {0}-{1} Defense {2} Magic Resistance {3} Magic Defense {4} Maximum Health {5} Maximum Mana {6}", CombatStats.MinimumDamage, CombatStats.MaximumDamage,
+            //    CombatStats.Defense, CombatStats.MagicResistance, CombatStats.MagicDamage, CombatStats.MaxLife, CombatStats.MaxMana));
 
             //Correct max hp stats in client.
             Send(UpdatePacket.Create(UID, UpdateType.MaxLife, MaximumLife));
@@ -732,12 +769,31 @@ namespace Redux.Game_Server
                 for (var i = 0; i < 5; i++)
                     CreateDBItem(1050000);
             }
+            else if (Character.Profession == 10)
+            {
+                Character.Profession = 12;
+                CreateDBItem(420005, ItemLocation.WeaponR);
+                CreateDBItem(420005, ItemLocation.WeaponL);
+                ConquerSkill.Create(Character.UID, 5030, 0).Save();
+                for (var i = 0; i < 5; i++)
+                    CreateDBItem(1000000);
+            }
+            else if (Character.Profession == 20)
+            {
+                CreateDBItem(561005, ItemLocation.WeaponR);
+                ConquerSkill.Create(Character.UID, 5010, 0).Save();
+                for (var i = 0; i < 5; i++)
+                    CreateDBItem(1000000);
+            }
             else
-                CreateDBItem(410301, ItemLocation.WeaponR);
-            for (var i = 0; i < 5; i++)
-                CreateDBItem(1000000);
+                for (var i = 0; i < 5; i++)
+                    CreateDBItem(1000000);
 
             Database.ServerDatabase.Context.Characters.CreateEntry(Character);
+            Character.HeavenBlessExpires = DateTime.Now.AddDays(30);
+            Send(UpdatePacket.Create(UID, Enum.UpdateType.HeavenBlessing, Common.SecondsFromNow(Character.HeavenBlessExpires)));
+            Send(UpdatePacket.Create(UID, Enum.UpdateType.SizeAdd, 2));
+            Send(UpdatePacket.Create(UID, Enum.UpdateType.OnlineTraining, 0));
         }
         
         #endregion
@@ -996,6 +1052,63 @@ namespace Redux.Game_Server
         }
         #endregion
 
+        #endregion
+
+        #region SelfEffect
+        public void SelfEffect(string effect)
+        {
+            PlayerManager.SendToServer(StringsPacket.Create(UID, StringAction.RoleEffect, effect));
+        }
+        #endregion
+
+        #region MonsterHunter
+        public void MonsterGiveup()
+        {
+            IsHunter = 0;
+            MonsterID = 0;
+            MonsterKills = 0;
+        }
+
+        public void MonsterRewards()
+        {
+            GainExpBall(150);
+            CreateItem(Constants.METEOR_ID);
+            SelfEffect("angelwing");
+            IsHunter = 0;
+            MonsterID = 0;
+            MonsterKills = 0;
+            SendMessage("Quest has been finished, And you have recieved (a) Meteor.");
+        }
+        public void MonsterRewardsLv2()
+        {
+            GainExpBall(250);
+            CreateItem(Constants.STONE_ID);
+            SelfEffect("angelwing");
+            IsHunter = 0;
+            MonsterID = 0;
+            MonsterKills = 0;
+            SendMessage("Quest has been finished, And you have recieved (a) +1Stone.");
+        }
+        public void MonsterRewardsLv3()
+        {
+            GainExpBall(350);
+            //CreateItem(Constants.METEOR_ID);
+            CP += 30;
+            SelfEffect("angelwing");
+            IsHunter = 0;
+            MonsterID = 0;
+            MonsterKills = 0;
+            SendMessage("Quest has been finished, And you have recieved (30) CPs.");
+        }
+        public void MonsterStart(uint monster, ushort count)
+        {
+            var monsterid = ServerDatabase.Context.Monstertype.GetById(monster);
+            IsHunter = 1;
+            MonsterID = monster;
+            MonsterKills = 0;
+            MonsterCount = count;
+            SendMessage("Now please! Go kill " + MonsterCount + " from " + monsterid.Name + " monsters!", ChatType.System);
+        }
         #endregion
 
         #region Delayed Action Timeout

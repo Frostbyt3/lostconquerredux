@@ -4,20 +4,22 @@ namespace Redux
     public static class Constants
     {
         public const int EXP_BALL_LIMIT = 10;
-        public const uint EMERALD_ID = 1080001, DB_SCROLL_ID = 720028, DRAGONBALL_ID = 1088000, METEOR_SCROLL_ID = 720027, METEOR_ID = 1088001, METEOR_TEAR_ID = 1088002, MOONBOX_ID = 721020, CELESTIAL_STONE_ID = 721259;
+        public const uint EMERALD_ID = 1080001, DB_SCROLL_ID = 720028, DRAGONBALL_ID = 1088000, METEOR_SCROLL_ID = 720027, METEOR_ID = 1088001, METEOR_TEAR_ID = 1088002, MOONBOX_ID = 721020, CELESTIAL_STONE_ID = 721259, STONE_ID = 730000;
         public const bool IsSameSexMarriageAllowed = true;
-        public const int EXP_RATE = 5,
-                              PROF_RATE = 5,
-                              SKILL_RATE = 5,
-                              GOLD_RATE = 5;
+        public const int 
+            EXP_RATE = 3,
+            PROF_RATE = 5,
+            SKILL_RATE = 3,
+            GOLD_RATE = 3;
 
-        public const double SOCKET_RATE = .4,
-            CHANCE_REFINED = 10.0,
-            CHANCE_UNIQUE = 6.0,
-            CHANCE_ELITE = 1.0,
-            CHANCE_SUPER = 0.3,
-            CHANCE_PLUS = 2.0,
-            CHANCE_METEOR = 0.72,
+        public const double 
+            SOCKET_RATE = .4,
+            CHANCE_REFINED = 1.0,
+            CHANCE_UNIQUE = 0.25,
+            CHANCE_ELITE = 0.1,
+            CHANCE_SUPER = 0.07,
+            CHANCE_PLUS = 0.1,
+            CHANCE_METEOR = 0.09,
             CHANCE_DRAGONBALL = 0.0556,
             CHANCE_POTION = 4,
             CHANCE_REFINED_GEM = 10,
@@ -80,7 +82,8 @@ namespace Redux
             MSG_MENTORINFO = 2066,
             MSG_MENTORPRIZE = 2067;
 
-        public const int TIME_ADJUST_HOUR = -5,
+        public const int
+            TIME_ADJUST_HOUR = -5,
             TIME_ADJUST_MIN = 0,
             TIME_ADJUST_SEC = 0;
 
@@ -89,15 +92,17 @@ namespace Redux
         public static uint MINUTES_BANNED_BRUTEFORCE = 30;
         public static uint MAX_CONNECTIONS_PER_MINUTE = 10;
 
-        public static string GAME_IP = "0.0.0.0",
-                             SERVER_NAME = "Redux_Beta";
+        public static string
+            GAME_IP = "0.0.0.0",
+            SERVER_NAME = "LostConquerRedux";
 
-        public const string SYSTEM_NAME = "SYSTEM",
-                            ALLUSERS_NAME = "ALLUSERS",
-                            REPLY_OK_STR = "ANSWER_OK",
-                            REPLAY_AGAIN_STR = "ANSWER_AGAIN",
-                            NEW_ROLE_STR = "NEW_ROLE",
-                            DEFAULT_MATE = "None";
+        public const string
+            SYSTEM_NAME = "SYSTEM",
+            ALLUSERS_NAME = "ALLUSERS",
+            REPLY_OK_STR = "ANSWER_OK",
+            REPLAY_AGAIN_STR = "ANSWER_AGAIN",
+            NEW_ROLE_STR = "NEW_ROLE",
+            DEFAULT_MATE = "None";
 
         public const int STAT_MAXLIFE_STR = 3, STAT_MAXLIFE_AGI = 3, STAT_MAXLIFE_VIT = 24, STAT_MAXLIFE_SPI = 3; 
         public const int STAT_MAXMANA_STR = 0, STAT_MAXMANA_AGI = 0, STAT_MAXMANA_VIT = 0, STAT_MAXMANA_SPI = 5;
