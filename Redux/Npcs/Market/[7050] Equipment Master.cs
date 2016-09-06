@@ -30,6 +30,15 @@ namespace Redux.Npcs
 
                 case 0:
                     {
+                        AddText("Hello, I can upgrade your items past level 120 for the cost of 1 DragonBall.");
+                        AddText("The upgrade is guaranteed to work!");
+                        AddOption("Yes, Let's do it!", 2);
+                        AddOption("Maybe later.", 255);
+                        break;
+                    }
+
+                case 2:
+                    {
                         AddText("Each upgrade requires 1 DragonBall and there is no turning back! ");
                         AddText("What item would you like me to upgrade?");
                         AddOption("Helmet/Earrings/TaoCap ", 11);
