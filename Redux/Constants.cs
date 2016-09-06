@@ -26,22 +26,24 @@ namespace Redux
             CHANCE_SUPER_GEM = 1;
 
         public static bool DEBUG_MODE;
-        public const byte RESPONSE_INVALID = 1,
-                          RESPONSE_VALID = 2,
-                          RESPONSE_BANNED = 12,
-                          RESPONSE_INVALID_ACCOUNT = 57;
-        public const int IPSTR_SIZE = 16,
-                            MACSTR_SIZE = 12,
-                            MAX_NAMESIZE = 16,
-                            MAX_BROADCASTSIZE = 80,
-                            MAX_USERFRIENDSIZE = 50,
-                            MAX_ENEMYSIZE = 10,
-                            MAX_TRADEITEMS = 20,
-                            MAX_TRADEMONEY = 100000000,
-                            MAX_TEAMAMOUNT = 5,
-                            MAX_ADDITION = 12,
-                            MAX_GUILDALLYSIZE = 5,
-                            MAX_GUILDENEMYSIZE = 5;
+        public const byte
+            RESPONSE_INVALID = 1,
+            RESPONSE_VALID = 2,
+            RESPONSE_BANNED = 12,
+            RESPONSE_INVALID_ACCOUNT = 57;
+        public const int
+            IPSTR_SIZE = 16,
+            MACSTR_SIZE = 12,
+            MAX_NAMESIZE = 16,
+            MAX_BROADCASTSIZE = 80,
+            MAX_USERFRIENDSIZE = 50,
+            MAX_ENEMYSIZE = 10,
+            MAX_TRADEITEMS = 20,
+            MAX_TRADEMONEY = 100000000,
+            MAX_TEAMAMOUNT = 5,
+            MAX_ADDITION = 12,
+            MAX_GUILDALLYSIZE = 5,
+            MAX_GUILDENEMYSIZE = 5;
         public const ushort BOOTH_LOOK = 407;
         public const ushort
             MSG_REGISTER = 1001,

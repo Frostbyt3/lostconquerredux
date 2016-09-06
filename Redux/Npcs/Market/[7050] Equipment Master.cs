@@ -30,21 +30,6 @@ namespace Redux.Npcs
 
                 case 0:
                     {
-                        AddText("Hello, did you noticed that MagicArtisan can only level items up to 120?");
-                        AddText("I can upgrade it above 120 up to 130 ,but it costs 1 DragonBall for each upgrade.");
-                        AddOption("Yes, I want.", 2);
-                        AddOption("No. I like it this way.", 255);
-                        break;
-                    }
-                case 2:
-                    {
-                        AddText("It costs 1 DragonBall for any item above level 110.Are you really sure you want to do that?! ");
-                        AddOption("Yeah, upgrade it! ", 3);
-                        AddOption("No. I like it this way.", 255);
-                        break;
-                    }
-                case 3:
-                    {
                         AddText("Each upgrade requires 1 DragonBall and there is no turning back! ");
                         AddText("What item would you like me to upgrade?");
                         AddOption("Helmet/Earrings/TaoCap ", 11);
@@ -77,9 +62,9 @@ namespace Redux.Npcs
                             AddText("There must be some mistake. You must pay an DragonBall before you may upgrade it!");
                             AddOption("Nevermind", 255);
                         }
-                        else if (equipment.EquipmentLevel <= 110)
+                        else if (equipment.EquipmentLevel <= 0)
                         {
-                            AddText("There must be some mistake. Your item is not above level 110!");
+                            AddText("There must be some mistake.");
                             AddOption("Nevermind", 255);
 
                         }

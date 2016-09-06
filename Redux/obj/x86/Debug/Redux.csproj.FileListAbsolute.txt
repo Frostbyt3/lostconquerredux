@@ -254,3 +254,20 @@ F:\Redux 3.05\Redux\obj\x86\Debug\Redux.csprojResolveAssemblyReference.cache
 F:\Redux 3.05\Redux\obj\x86\Debug\Redux.ConfigCreatorForm.resources
 F:\Redux 3.05\Redux\obj\x86\Debug\Redux.ControlForm.resources
 F:\Redux 3.05\Redux\obj\x86\Debug\Redux.csproj.GenerateResource.Cache
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Redux.exe.config
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.exe
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.pdb
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Redux.exe
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Redux.pdb
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Iesi.Collections.dll
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Remotion.Data.Linq.dll
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\SevenZipSharp.dll
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\NHibernate.pdb
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\NHibernate.xml
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\TinyMap.pdb
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Iesi.Collections.pdb
+F:\LostConquerRedux\lostconquerredux\Redux\bin\Debug\Iesi.Collections.xml
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.csprojResolveAssemblyReference.cache
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.ConfigCreatorForm.resources
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.ControlForm.resources
+F:\LostConquerRedux\lostconquerredux\Redux\obj\x86\Debug\Redux.csproj.GenerateResource.Cache
