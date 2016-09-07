@@ -533,5 +533,110 @@ namespace Redux.Items
     #endregion
 
     #region Dances
+    #region Dance2
+    public class Item_725018 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance2))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance2, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance3
+    public class Item_725019 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance3))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance3, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance4
+    public class Item_725020 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance4))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance4, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance5
+    public class Item_725021 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance5))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance5, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance6
+    public class Item_725022 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance6))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance6, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance7
+    public class Item_725023 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance7))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance7, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
+    #region Dance8
+    public class Item_725024 : IItem
+    {
+        public override void Run(Player client, ConquerItem item)
+        {
+            if (!client.CombatManager.KnowsSkill(SkillID.Dance8))
+            {
+                client.CombatManager.AddOrUpdateSkill(SkillID.Dance8, 0);
+                client.DeleteItem(item);
+            }
+            else
+                client.SendMessage("You already know " + item.BaseItem.Name + "!", ChatType.Talk);
+        }
+    }
+    #endregion
     #endregion
 }
