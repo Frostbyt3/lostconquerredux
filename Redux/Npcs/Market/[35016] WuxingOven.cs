@@ -27,16 +27,17 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    AddText("A good set of equipment can help you a lot in future battles.Is there something I can do for you?");
-                    AddOption("Enchant HP to my gears.", 1);
-                    AddOption("Composing Upgrade.", 2);
-                    AddOption("Nothing right now, thanks.", 255);
+                    AddText("A good set of equipment can help you a lot in battle. I can help you upgrade your equipment");
+                    AddText("all the way to +9.");
+                    AddOption("Enchant HP", 1);
+                    AddOption("Composing Upgrade", 3);
+                    AddOption("No thanks.", 255);
 
                     break;
                 case 1:
                     _client.Send(GeneralActionPacket.Create(_client.UID, Enum.DataAction.OpenCustom, 1091));
                     break;
-                case 2:
+                /*case 2:
                     AddText("There are two ways of composing from +1 to +9 with +n stones or +n items and from +9 to +12 with DragonBalls.");
                     AddText("Whitch one would you want?");
                     AddOption("Compose +1 to +9.", 3);
@@ -44,11 +45,11 @@ namespace Redux.Npcs
                     AddOption("How does composing  +9 to +12 works?", 5);
                     AddOption("Thanks.", 255);
 
-                    break;
+                    break;*/
                 case 3:
                     _client.Send(GeneralActionPacket.Create(_client.UID, Enum.DataAction.OpenWindow, 1));
                     break;
-                case 4:
+                case 4:  // Everything else can stay. There's no way to access anything further than +9
                     AddText("What a glorious day! I belive it's the best weather to refine equipment in. Do you need my help with anything?");
                     AddOption("Compose +9 Equipment to +10.", 6);
                     AddOption("Compose +10 Equipment to +11.", 7);

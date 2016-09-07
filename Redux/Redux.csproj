@@ -159,6 +159,8 @@
     <Compile Include="Database\Repositories\Repository.cs" />
     <Compile Include="Database\Repositories\SkillRepository.cs" />
     <Compile Include="Database\ServerDatabase.cs" />
+    <Compile Include="Enum\LotteryInternalOdds.cs" />
+    <Compile Include="Enum\LotteryItemType.cs" />
     <Compile Include="Enum\TaskType.cs" />
     <Compile Include="Enum\ActionType.cs" />
     <Compile Include="Enum\AssociateAction.cs" />
@@ -300,7 +302,12 @@
     <Compile Include="Npcs\Lab\[1340] Old Explorer %28Level 2%29.cs" />
     <Compile Include="Npcs\Lab\[1339] Old Explorer %28Level 1%29.cs" />
     <Compile Include="Npcs\Lab\[1152] Simon.cs" />
+    <Compile Include="Npcs\Market\Lottery Npcs\[1338] LotteyController.cs" />
+    <Compile Include="Npcs\Market\Lottery Npcs\[5669] BOX1.cs" />
+    <Compile Include="Npcs\Market\Lottery Npcs\[5670] BOX2.cs" />
+    <Compile Include="Npcs\Market\Lottery Npcs\[5671] BOX3.cs" />
     <Compile Include="Npcs\Market\[300000] Shelby.cs" />
+    <Compile Include="Npcs\Market\[300500] Eternity.cs" />
     <Compile Include="Npcs\Market\[3381] SurgeonMiracle.cs" />
     <Compile Include="Npcs\Market\[350050] CelestealTao.cs" />
     <Compile Include="Npcs\Market\[1234] Ethereal.cs" />

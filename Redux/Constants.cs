@@ -7,9 +7,9 @@ namespace Redux
         public const uint EMERALD_ID = 1080001, DB_SCROLL_ID = 720028, DRAGONBALL_ID = 1088000, METEOR_SCROLL_ID = 720027, METEOR_ID = 1088001, METEOR_TEAR_ID = 1088002, MOONBOX_ID = 721020, CELESTIAL_STONE_ID = 721259, STONE_ID = 730000;
         public const bool IsSameSexMarriageAllowed = true;
         public const int 
-            EXP_RATE = 3,
-            PROF_RATE = 5,
-            SKILL_RATE = 3,
+            EXP_RATE = 5,
+            PROF_RATE = 9,
+            SKILL_RATE = 5,
             GOLD_RATE = 3;
 
         public const double 
@@ -19,7 +19,7 @@ namespace Redux
             CHANCE_ELITE = 0.1,
             CHANCE_SUPER = 0.07,
             CHANCE_PLUS = 0.1,
-            CHANCE_METEOR = 0.09,
+            CHANCE_METEOR = 0.1,
             CHANCE_DRAGONBALL = 0.0556,
             CHANCE_POTION = 4,
             CHANCE_REFINED_GEM = 10,

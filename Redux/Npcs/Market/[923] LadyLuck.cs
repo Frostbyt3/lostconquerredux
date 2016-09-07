@@ -28,6 +28,10 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
+                    AddText("The lottery system is currently under development. Please be patient!");
+                    AddOption("Okay, I'll wait.", 255);
+                    break;
+                case 11:
                     AddText("Hello! Have you heard about the lottery? We have amazing");
                     AddText(" rewards waiting for you! All you need is 1 lottery ticket.");
                     AddText(" Each lottery ticket only costs 215 CPs.");

@@ -26,6 +26,7 @@ namespace Redux
                 {
                 {"exit", Process_Exit},
                 {"heal", Process_Heal},
+                {"mana", Process_Mana},
                 {"item", Process_Item},
                 {"level", Process_Level},
                 {"money", Process_Money},
@@ -122,17 +123,29 @@ namespace Redux
             client.SendMessage("Clearing the inventory contents for " + client.Name);
         }
         #endregion
+        #region Exit
         private static void Process_Exit(Player client, string[] command)
         {
             client.Disconnect();
         }
+        #endregion
+        #region Heal
         private static void Process_Heal(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
                 return;
             client.Life = client.CombatStats.MaxLife;
+        }
+        #endregion
+        #region Mana
+        private static void Process_Mana(Player client, string[] command)
+        {
+            if (client.Account.Permission < PlayerPermission.GM)
+                return;
             client.Mana = client.CombatStats.MaxMana;
         }
+        #endregion
+        #region Item
         private static void Process_Item(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -187,7 +200,8 @@ namespace Redux
             else
             	client.SendMessage("Error adding item");             
         }
-
+        #endregion
+        #region Level
         private static void Process_Level(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -198,7 +212,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /level {#}");
         }
-        
+        #endregion
+        #region Money
         private static void Process_Money(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -209,7 +224,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /money {#}");
         }
-
+        #endregion
+        #region CP
         private static void Process_CP(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -220,7 +236,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /cp {#}");
         }
-
+        #endregion
+        #region Str
         private static void Process_Str(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -234,7 +251,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /str {#}");
         }
-
+        #endregion
+        #region Vit
         private static void Process_Vit(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -248,7 +266,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /vit {#}");
         }
-
+        #endregion
+        #region Agi
         private static void Process_Agi(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -262,7 +281,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /agi {#}");
         }
-
+        #endregion
+        #region Spi
         private static void Process_Spi(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -276,6 +296,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /spi {#}");
         }
+        #endregion
+        #region Job
         private static void Process_Job(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -290,6 +312,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /job {#}");
         }
+        #endregion
+        #region Effect
         private static void Process_Effect(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -305,6 +329,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /effect {#}");
         }
+        #endregion
+        #region Skill
         private static void Process_Skill(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -315,6 +341,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /skill {###} {#}");
         }
+        #endregion
+        #region Prof
         private static void Process_Prof(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -325,6 +353,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /prof id {lvl}");
         }
+        #endregion
+        #region Map
         private static void Process_Map(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -343,6 +373,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /map {id} {x} {y}");
         }
+        #endregion
+        #region Debug
         private static void Process_Debug(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -351,6 +383,8 @@ namespace Redux
             Constants.DEBUG_MODE = !Constants.DEBUG_MODE;
             client.SendMessage("Debug mode is now " + Constants.DEBUG_MODE);
         }
+        #endregion
+        #region Transform
         private static void Process_Transform(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -366,6 +400,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /transform {id}");
         }
+        #endregion
+        #region MapFlag
         private static void Process_MapFlag(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -386,6 +422,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /mapflag {flag}");
         }
+        #endregion
+        #region Xp
         private static void Process_Xp(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -399,6 +437,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /xp {#}");
         }
+        #endregion
+        #region Drop
         private static void Process_Drop(Player client, string[] command) //TODO: Why is this unused?
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -416,6 +456,8 @@ namespace Redux
             }
                 
         }
+        #endregion
+        #region Delete_Npc
         private static void Process_Delete_Npc(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -439,6 +481,8 @@ namespace Redux
                 }
             }
         }
+        #endregion
+        #region Test_Npc
         private static void Process_Test_Npc(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -456,6 +500,8 @@ namespace Redux
             else
                 client.SendMessage("Error: Format should be /testnpc id mesh");
         }
+        #endregion
+        #region Add_Npc
         private static void Process_Add_Npc(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -482,6 +528,8 @@ namespace Redux
             //TODO: FINISH
 
         }
+        #endregion
+        #region Test_NpcTalk
         private static void Process_Test_NpcTalk(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -495,6 +543,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Popup
         private static void Process_Popup(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -507,6 +557,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Update
         private static void Process_Update(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -519,6 +571,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Test
         private static void Process_Test(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -596,6 +650,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Down
         private static void Process_Down(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -613,6 +669,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region DumpSkills
         private static void Process_DumpSkills(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -624,6 +682,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region MapTest
         private static void Process_MapTest(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -648,6 +708,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Data
         private static void Process_Data(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -664,6 +726,8 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Broadcast
         private static void Process_Broadcast(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -674,10 +738,13 @@ namespace Redux
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region Report
         private static void Process_Report(Player client, string[] command)
         {
-            if (client.Account.Permission < PlayerPermission.GM)
-                return;
+            // This doesn't need to be a GM Only command at the moment. Players can use the /report command to report bugs and/or missing NPCs/features. (e.g. /report Conductress in AC is missing)
+            //if (client.Account.Permission < PlayerPermission.GM)
+            //    return;
             try
             {
                 var report = new Database.Domain.DbBugReport();
@@ -685,10 +752,12 @@ namespace Redux
                 report.Description = string.Join(" ", command, 1, command.Length - 1);
                 report.ReportedAt = DateTime.Now;
                 Database.ServerDatabase.Context.BugReports.Add(report);
-                client.SendMessage("Bug report has been added successfully!");
+                client.SendMessage("Thank you for the report! We will look into this as soon as possible.");
             }
             catch (Exception p) { Console.WriteLine(p); }
         }
+        #endregion
+        #region GoTo
         private static void Process_GoTo(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -715,6 +784,8 @@ namespace Redux
                     client.ChangeMap(target.MapID, target.X, target.Y);}
             }
         }
+        #endregion
+        #region Summon
         private static void Process_Summon(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -740,6 +811,8 @@ namespace Redux
             }
 
         }
+        #endregion
+        #region String
         private static void Process_String(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -751,6 +824,8 @@ namespace Redux
 
 
         }
+        #endregion
+        #region AddSpawn
         private static void Process_AddSpawn(Player client, string[] command)
         {
             if (client.Account.Permission < PlayerPermission.GM)
@@ -788,6 +863,7 @@ namespace Redux
                 }
 
             }
-        }      
+        }
+        #endregion
     }
 }
