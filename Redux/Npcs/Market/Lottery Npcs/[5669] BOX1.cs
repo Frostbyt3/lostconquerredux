@@ -25,7 +25,7 @@ namespace Redux.Npcs
             {
                 case 0:
                     {
-                        /*if (!_client.Tasks.ContainsKey(TaskType.Lottery))
+                        if (!_client.Tasks.ContainsKey(TaskType.Lottery))
                             _client.Tasks.TryAdd(TaskType.Lottery, new Task(_client.UID, TaskType.Lottery,
                            DateTime.Now.AddHours(24)));
                         if (_client.Tasks[TaskType.Lottery].Count >= 10)
@@ -34,8 +34,7 @@ namespace Redux.Npcs
                             AddOption("i was just getting started!", 255);
                             break;
                         }
-                        else */
-                        if (!_client.HasItem(710212))
+                        else if (!_client.HasItem(710212))
                         {
                             AddText("You do not have a lottery ticket! I cannot help you unless you have one.");
                             AddText("You can buy one from LadyLuck in the Market.");
@@ -52,7 +51,6 @@ namespace Redux.Npcs
                                 _client.Send(ItemInformationPacket.Create(item));
                             else
                                 _client.SendMessage("Error adding item"); 
-                            //_client.AddItem(item);
                             string pre = "";
                             switch (ItemInfo.Item3)
                             {
@@ -72,10 +70,10 @@ namespace Redux.Npcs
                                     pre = " Super ";
                                     break;
                             }
-                            AddText("Here is some info about the item. ");
+                            /*AddText("Here is some info about the item. ");
                             AddText("Character: " + _client.Name + " - Item1: " + ItemInfo.Item1 + " - Item2: " + ItemInfo.Item2 + " - Item3: " + ItemInfo.Item3 + " ");
                             AddText("Just item: " + item + " - UniqueID: " + item.UniqueID);
-                            AddOption("Close window", 255);
+                            AddOption("Close window", 255);*/
                             PlayerManager.SendToServer(new TalkPacket(ChatType.GM, _client.Name + " was so lucky and won a/an " + pre + ItemInfo.Item2 + " in the lottery"));
                         }
                         break;

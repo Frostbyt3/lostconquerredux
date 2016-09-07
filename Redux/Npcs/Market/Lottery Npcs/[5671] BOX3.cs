@@ -44,7 +44,12 @@ namespace Redux.Npcs
                             _client.Tasks[TaskType.Lottery].Count++;
                             _client.DeleteItem(710212);
                             var ItemInfo = Common.QurryLotteryItem();
-                            _client.AddItem(ItemInfo.Item1);
+                            var item = ItemInfo.Item1;
+                            item.SetOwner(_client);
+                            if (_client.AddItem(item))
+                                _client.Send(ItemInformationPacket.Create(item));
+                            else
+                                _client.SendMessage("Error adding item"); 
                             string pre = "";
                             switch (ItemInfo.Item3)
                             {
