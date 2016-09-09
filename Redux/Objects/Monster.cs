@@ -266,6 +266,7 @@ namespace Redux.Game_Server
 
         private void DropItemByID(uint _id, uint _killer, CurrencyType _currency = CurrencyType.None, uint _value = 0)
         {
+            var killer = Map.Search<Player>(_killer);
             var itemInfo = Database.ServerDatabase.Context.ItemInformation.GetById(_id);
             if (itemInfo != null)
             {
@@ -283,6 +284,34 @@ namespace Redux.Game_Server
                         coItem.Plus = 1;
                     var groundItem = new GroundItem(coItem, coItem.UniqueID, loc, Map, _killer, _currency, _value);
                     groundItem.AddToMap();
+
+                    #region Notify Player of Rare Items Dropped
+                    if (groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1090000 || groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1090010 || groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1090020 || groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1091000 || groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1091010 || groundItem.Item.Plus != 0 && groundItem.Item.BaseItem.ID != 1091020)
+                    {
+                        killer.SendMessage("A monster you killed has dropped " + groundItem.Item.BaseItem.Name + "(+" + groundItem.Item.Plus + ")", ChatType.Global);
+                    }
+                    else if (groundItem.Item.EquipmentQuality == 9)
+                    {
+                        killer.SendMessage("A monster you killed has dropped Super " + groundItem.Item.BaseItem.Name, ChatType.Global);
+                    }
+                    else if (groundItem.Item.EquipmentQuality == 8)
+                    {
+                        killer.SendMessage("A monster you killed has dropped Elite " + groundItem.Item.BaseItem.Name, ChatType.Global);
+                    }
+                    else if (groundItem.Item.EquipmentQuality == 7)
+                    {
+                        killer.SendMessage("A monster you killed has dropped Unique " + groundItem.Item.BaseItem.Name, ChatType.Global);
+                    }
+                    else if (groundItem.Item.BaseItem.ID == Constants.METEOR_ID)
+                    {
+                        killer.SendMessage("A monster you killed has dropped " + groundItem.Item.BaseItem.Name, ChatType.Global);
+                    }
+                    else if (groundItem.Item.BaseItem.ID == Constants.DRAGONBALL_ID)
+                    {
+                        killer.SendMessage("A monster you killed has dropped " + groundItem.Item.BaseItem.Name, ChatType.Global);
+                        PlayerManager.SendToServer(new TalkPacket(ChatType.Talk2, killer.Name + " has found (a) DragonBall from killing " + BaseMonster.Name));
+                    }
+                    #endregion
                 }
             }
         }

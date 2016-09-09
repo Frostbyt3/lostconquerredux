@@ -37,7 +37,7 @@ namespace Redux
 
             LotteryItemsList = new List<Tuple<uint, LotteryItemType, string, LotteryInternalOdds>>() 
             {
-                #region All LOTTERY ITEMS !
+                #region All LOTTERY ITEMS
                 // 5% 5
                 #region Elite1Socket
                 new Tuple<uint, LotteryItemType, string, LotteryInternalOdds>(142028, LotteryItemType.Elite1Socket,
@@ -738,6 +738,7 @@ namespace Redux
         public static readonly byte[] SERVER_SEAL;
         private static readonly Stopwatch _clock;
         #endregion
+
         #region Helper Methods
 
         public static Tuple<ConquerItem, string, LotteryItemType> QurryLotteryItem()

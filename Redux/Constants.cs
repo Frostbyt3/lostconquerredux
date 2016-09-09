@@ -26,7 +26,7 @@ namespace Redux
         public const double 
             SOCKET_RATE = .4,
             CHANCE_REFINED = 1.0,
-            CHANCE_UNIQUE = 0.25,
+            CHANCE_UNIQUE = 0.17,
             CHANCE_ELITE = 0.1,
             CHANCE_SUPER = 0.07,
             CHANCE_PLUS = 0.1,

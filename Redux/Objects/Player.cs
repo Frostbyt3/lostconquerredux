@@ -625,9 +625,15 @@ namespace Redux.Game_Server
             AddEffect(ClientEffect.Ghost, 0);
             AddStatus(Enum.ClientStatus.ReviveTimeout, 0, 18 * Common.MS_PER_SECOND);
 
-
+            ushort _x = X;
+            ushort _y = Y;
 
             base.Kill(_dmg, _attacker);
+           if (due == 0)
+            {
+                ChangeMap(MapID, _x, _y);
+                due = 1;
+            }
         }
         #endregion
 

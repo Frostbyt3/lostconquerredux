@@ -402,7 +402,7 @@ namespace Redux.Game_Server
                     client.Send(ServerTimePacket.Create());
                     client.Send(Nobility.UpdateIcon(client));
                     client.SpawnPacket.Nobility = (byte)client.NobilityMedal;
-                    PlayerManager.SendToServer(new TalkPacket(ChatType.Talk2, client.Name + " Has logged onto the server!"));
+                    PlayerManager.SendToServer(new TalkPacket(ChatType.Global, client.Name + " Has logged onto the server!"));
                     client.Send(packet);
                     break;
                 #endregion
