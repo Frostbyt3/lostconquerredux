@@ -61,14 +61,14 @@ namespace Redux
             //                                       DayName    Date        Time  A\PM    newline   
             Console.WriteLine(DateTime.Now.ToString("[dddddd - dd/M/yyyy - hh:mm:ss tt]") +"\n"+ Constants.SERVER_NAME + " Ready to log in");
 
-            NoteBox.Text = File.ReadAllText("Texts\\TODO LIST.txt");
+            NoteBox.Text = File.ReadAllText("Text Files\\Todo List.txt");
             
         }
 
         private void ConsoleSave_Click(object sender, EventArgs e)
         {
             //Write console text
-            using (var writer = new StreamWriter(File.Open("Texts\\Console Text.txt", FileMode.Append)))
+            using (var writer = new StreamWriter(File.Open("Text Files\\Console.txt", FileMode.Append)))
             {
                 writer.WriteLine(ConsoleText.Text);
 
@@ -104,7 +104,7 @@ namespace Redux
         private void SaveNotes_Click(object sender, EventArgs e)
         {
             //Write
-            using (StreamWriter sw1 = new StreamWriter("Texts\\TODO LIST.txt"))
+            using (StreamWriter sw1 = new StreamWriter("Text Files\\Todo List.txt"))
             {
                 sw1.WriteLine(NoteBox.Text);
 
@@ -114,7 +114,7 @@ namespace Redux
 
         private void ReadNotes_Click(object sender, EventArgs e)
         {   //Read
-            NoteBox.Text = File.ReadAllText("Texts\\TODO LIST.txt");
+            NoteBox.Text = File.ReadAllText("Text Files\\Todo List.txt");
         }
 
         private void LoadNote_Click(object sender, EventArgs e)

@@ -157,7 +157,7 @@ namespace Redux.Npcs
                                 skill.Send(_client);
                             }
 
-                            _client.Character.Profession1 = _client.Character.Profession;
+                            _client.Character.Profession2 = _client.Character.Profession;
                             switch (_linkback % 10)
                             {
                                 case 1:
