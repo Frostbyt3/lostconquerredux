@@ -135,7 +135,7 @@ namespace Redux.Managers
                 switch (Owner.ProfessionType)
                 {
                     case ProfessionType.Trojan:
-                        canEq = Owner.ProfessionLevel > 1;
+                        canEq = Owner.ProfessionLevel >= 2;
                         break;
                     case ProfessionType.Archer:
                         canEq = true;

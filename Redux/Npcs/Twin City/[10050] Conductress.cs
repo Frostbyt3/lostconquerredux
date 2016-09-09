@@ -101,6 +101,10 @@ namespace Redux.Npcs
                     {
                         _client.Money -= 100;
                         _client.ChangeMap(1036, 211, 196);
+                        _client.PrevMap = (ushort)_client.Character.Map;
+                        _client.PrevX = (ushort)_client.Character.X;
+                        _client.PrevY = (ushort)_client.Character.Y;
+                        _client.Save();
                     }
                     else
                     {

@@ -10,8 +10,8 @@ namespace Redux.Enum
         Blue = 0x0000FF,
         Red = 0xFF0000,
         Green = 0x00FF00,
-        Yellow = 0x00FFFF,
-        Pink = 0xFF00FF,
+        Yellow = 0x00FF00,
+        Pink = 0xFF80B9,
         Black = 0x000000,
         White = 0xFFFFFF,
     }

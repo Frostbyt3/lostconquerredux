@@ -161,6 +161,9 @@
     <Compile Include="Database\ServerDatabase.cs" />
     <Compile Include="Enum\LotteryInternalOdds.cs" />
     <Compile Include="Enum\LotteryItemType.cs" />
+    <Compile Include="Enum\MessageBoardAction.cs" />
+    <Compile Include="Enum\MessageBoardChannel.cs" />
+    <Compile Include="Enum\RebornItemEffect.cs" />
     <Compile Include="Enum\TaskType.cs" />
     <Compile Include="Enum\ActionType.cs" />
     <Compile Include="Enum\AssociateAction.cs" />
@@ -261,6 +264,7 @@
     <Compile Include="Items\[720027] MeteorScroll.cs" />
     <Compile Include="Items\Manager.cs" />
     <Compile Include="Managers\AssociateManager.cs" />
+    <Compile Include="Managers\MessageBoardManager.cs" />
     <Compile Include="Managers\NobilityManager.cs" />
     <Compile Include="Managers\GuildManager.cs" />
     <Compile Include="Managers\PetManager.cs" />
@@ -376,6 +380,7 @@
     <Compile Include="Packets\Game\[1024] AssignAttributes.cs" />
     <Compile Include="Packets\Game\[1108]VendorItem.cs" />
     <Compile Include="Packets\Game\[1056]Trade.cs" />
+    <Compile Include="Packets\Game\[1111] MessageBoard.cs" />
     <Compile Include="Packets\Game\[2033] AssociateInformation.cs" />
     <Compile Include="Packets\Game\[2043]OfflineTGInfo.cs" />
     <Compile Include="Packets\Game\[2044]OfflineTG.cs" />

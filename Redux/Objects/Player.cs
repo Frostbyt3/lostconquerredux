@@ -164,6 +164,7 @@ namespace Redux.Game_Server
 
         #region Accessors
 
+
         public uint VirtuePoints
         {
             get { return Character.VirtuePoints; }
@@ -731,6 +732,9 @@ namespace Redux.Game_Server
             Character.Map = 1002;
             Character.X = 438;
             Character.Y = 381;
+            Character.PrevMap = 1010;
+            Character.PrevX = 92;
+            Character.PrevY = 56;
             Character.Pk = 0;
             Character.Profession = profession;
             Character.Profession1 = 0;
@@ -1310,6 +1314,11 @@ namespace Redux.Game_Server
                 ChangeMap(m.SpawnID, m.SpawnX, m.SpawnY);
         }
 
+        public void PreviousMap()
+        {
+            ChangeMap(PrevMap, PrevX, PrevY);
+        }
+
         public void ChangeMap(ushort _id, ushort _x, ushort _y)
         {
             if (!Common.MapService.MapData.ContainsKey(_id))
@@ -1328,6 +1337,15 @@ namespace Redux.Game_Server
 
             if (Pet != null)
                 Pet.RemovePet();
+
+            // Set Previous Map
+
+            if (Map.ID != 1036 && Map.ID != 601 && Map.ID != 700 && Map.ID != 1038 && Map.ID != 1039 && Map.ID != 6000 & Map.ID != 6001)
+             {
+                PrevMap = Map.MapInfo.SpawnID;
+                PrevX = Map.MapInfo.SpawnX;
+                PrevY = Map.MapInfo.SpawnY;
+            }
 
             //Save current map location if needed
             var newMap = ServerDatabase.Context.Maps.GetById(_id);

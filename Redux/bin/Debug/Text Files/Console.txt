@@ -1,0 +1,14 @@
+[Friday - 09/9/2016 - 09:32:06 AM]
+[Redux] Ready to log in
+Client relyks3 Connecting to server Light
+TheBigLebowski is logging in.
+Map ID 1002 loaded 27 npcs and 85 spawns
+ERROR: TheBigLebowski has a null combat manager. Re-creating
+Map ID 1036 loaded 166 npcs and 0 spawns
+Map ID 700 loaded 4 npcs and 0 spawns
+Map ID 1011 loaded 12 npcs and 154 spawns
+Connection timeout for TheBigLebowski with 46109 ms latency
+Client relyks3 Connecting to server Light
+TheBigLebowski is logging in.
+ERROR: TheBigLebowski has a null combat manager. Re-creating
+
