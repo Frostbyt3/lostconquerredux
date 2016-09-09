@@ -89,5 +89,9 @@ namespace Redux.Enum
         AdvancedFly = 8003,
         Intensify = 9000,
         ArrowRain = 8030,
+
+        //Rebirth Skills
+        SummonGuard = 4000,
+        Bless = 9876,
     }
 }

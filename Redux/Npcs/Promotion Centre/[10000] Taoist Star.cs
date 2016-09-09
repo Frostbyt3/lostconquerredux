@@ -22,28 +22,43 @@ namespace Redux.Npcs
         {
             Responses = new List<NpcDialogPacket>();
             AddAvatar();
-
-            if (client.ProfessionType != ProfessionType.Taoist && client.ProfessionType != ProfessionType.FireTaoist && client.ProfessionType != ProfessionType.WaterTaoist)
-            {
-                AddText("The taoists` secrets are not to be trained to outsiders. Train elsewhere, master conqueror.");
-                AddOption("I see.", 255);
-                AddFinish();
-                Send();
-                return;
-            }
-
             switch (linkback)
             {
                 #region Initial Options
-                case 0: 
-                    AddText("Most of the Taoists are little concerned with anything outside the pursuit of ");
-                    AddText("advanced spiritual powers. You are gifted in harnessing your inner power, ");
-                    AddText("but remember, the roots of success lie in thoroughness and attention to detail.");
-                    AddOption("I want to get promoted.", 1);
-                    AddOption("Learn basic skills.", 5);//Handles basic taoist skills
-                    if (client.ProfessionLevel >= 2)//Handles class specific skills
-                        AddOption("Learn advanced skills.", 6);
-                    AddOption("Okay. I see.", 255);
+                case 0:
+                    if (client.ProfessionType == ProfessionType.Taoist && client.RebornCount == 0 || client.ProfessionType == ProfessionType.FireTaoist && client.RebornCount == 0 || client.ProfessionType == ProfessionType.WaterTaoist && client.RebornCount == 0)
+                    {
+                        AddText("Most of the Taoists are little concerned with anything outside the pursuit of ");
+                        AddText("advanced spiritual powers. You are gifted in harnessing your inner power, ");
+                        AddText("but remember, the roots of success lie in thoroughness and attention to detail.");
+                        AddOption("I want to get promoted.", 1);
+                        AddOption("Learn basic skills.", 5);//Handles basic taoist skills
+                        if (client.ProfessionLevel >= 2)//Handles class specific skills
+                            AddOption("Learn advanced skills.", 6);
+                        AddOption("Okay. I see.", 255);
+                    }
+                    else if (client.ProfessionType == ProfessionType.Taoist && client.RebornCount == 0 || client.ProfessionType == ProfessionType.FireTaoist && client.RebornCount == 0 || client.ProfessionType == ProfessionType.WaterTaoist && client.RebornCount == 1)
+                    {
+                        AddText("Most of the Taoists are little concerned with anything outside the pursuit of ");
+                        AddText("advanced spiritual powers. You are gifted in harnessing your inner power, ");
+                        AddText("but remember, the roots of success lie in thoroughness and attention to detail.");
+                        AddOption("I want to get promoted.", 1);
+                        AddOption("Learn basic skills.", 5);//Handles basic taoist skills
+                        if (client.ProfessionLevel >= 2)//Handles class specific skills
+                            AddOption("Learn advanced skills.", 6);
+                        AddOption("Reborn skills", 60);
+                        AddOption("Okay. I see.", 255);
+                    }
+                    else if (client.ProfessionType != ProfessionType.Taoist && client.ProfessionType != ProfessionType.FireTaoist && client.ProfessionType != ProfessionType.WaterTaoist && client.RebornCount >= 1)
+                    {
+                        AddText("I can help you learn the skills you need after you have been reborn.");
+                        AddOption("Reborn skills.", 60);
+                    }
+                    else if (client.ProfessionType != ProfessionType.Taoist && client.ProfessionType != ProfessionType.FireTaoist && client.ProfessionType != ProfessionType.WaterTaoist && client.RebornCount == 0)
+                    {
+                        AddText("The taoists` secrets are not to be trained to outsiders. Train elsewhere, master conqueror.");
+                        AddOption("I see.", 255);
+                    }
                     break;
                 #endregion
 
@@ -427,6 +442,44 @@ namespace Redux.Npcs
                     AddOption("Thanks", 255);
                     break;
                 #endregion
+
+                #region Reborn Skills
+
+                #region SummonGuard
+                case 60:
+                    AddText("In order to learn Summon Guard, you will need to bring me a Rate 10 Gold Ore.");
+                    AddOption("Summon Guard", 70);
+                    break;
+
+                case 70:
+                    if (client.RebornCount >= 1)
+                    {
+                        if (client.HasItem(1072059))
+                        {
+                            if (client.CombatManager.KnowsSkill(SkillID.SummonGuard))
+                            {
+                                AddText("You already know Summon Guard.");
+                                AddOption("I see", 255);
+                            }
+                            else
+                            {
+                                client.CombatManager.LearnNewSkill(SkillID.SummonGuard);
+                                client.DeleteItem(1072059);
+                                AddText("You have learned Summon Guard.");
+                                AddOption("Thanks", 255);
+                            }
+                        }
+                        else
+                        {
+                            AddText("Sorry, you do not have a Rate 10 Gold Ore.");
+                            AddOption("I see", 255);
+                        }
+                    }
+                    break;
+                #endregion
+
+                #endregion
+
                 #endregion
             }
             AddFinish();
