@@ -239,6 +239,7 @@
     <Compile Include="Items\Potions\Mana\[1002040] ChantPill.cs" />
     <Compile Include="Items\Potions\Mana\[1001010] Tonic.cs" />
     <Compile Include="Items\Potions\Mana\[1001000] Agrypnotic.cs" />
+    <Compile Include="Items\Quests\[750000] CloudSaintsJar.cs" />
     <Compile Include="Items\[720028] DBScroll.cs" />
     <Compile Include="Items\[72003_] Fireworks.cs" />
     <Compile Include="Items\[120000_] PrayingStone.cs" />
@@ -246,6 +247,9 @@
     <Compile Include="Items\[723583] NinjaAmulet.cs" />
     <Compile Include="Items\[723584] BlackTulip.cs" />
     <Compile Include="Items\[723700] ExpBall.cs" />
+    <Compile Include="Items\[723712] +1StonePack.cs" />
+    <Compile Include="Items\[723727] PenitenceAmulet.cs" />
+    <Compile Include="Items\[7237__] ClassXMoneyBags.cs" />
     <Compile Include="Items\[7250__] SkillBook.cs" />
     <Compile Include="Items\Gates\[1060024] BirdIslandScroll.cs" />
     <Compile Include="Items\Gates\[1060023] CastleCityScroll.cs" />

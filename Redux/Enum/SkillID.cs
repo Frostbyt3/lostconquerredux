@@ -34,7 +34,9 @@ namespace Redux.Enum
         Shield = 1020,
         Superman = 1025,
         Roar = 1040,
-        ///<summary>XP Revive</summary>
+        ///<summary>
+        ///XP Revive
+        ///</summary>
         Revive = 1050,
         Cyclone = 1110,
         Volcano = 1125,

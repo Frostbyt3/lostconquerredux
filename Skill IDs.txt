@@ -1,0 +1,367 @@
+CO Skill Ids:
+
+1000 Thunder
+1001 Fire
+1002 Tornado
+1005 Cure
+1010 Lightning
+1015 Accuracy
+1020 Shield
+1025 Superman
+1030 Thunder
+1050 Revive
+1040 Roar
+1055 HealingRain
+1060 Summon
+1065 Dispel
+1070 AdvancedDispel
+1075 Invisibility
+1080 RandomTeleport
+1045 FastBlade
+1046 ScentSword
+1085 StarofAccuracy
+1090 MagicShield
+1095 Stigma
+1100 Pray
+1105 Restore
+1110 Cyclone
+1115 Hercules
+1120 FireCircle
+1120 FireArista
+1120 Blaze
+1120 Inferno
+1125 Volcano
+1150 FireRing
+1150 FireBall
+1165 FireofHell
+1160 Bomb
+1051 Dash
+1021 Fortress
+1175 AdvancedCure
+1170 Nectar
+1180 FireMeteor
+1190 SpiritHealing
+1195 Meditation
+1210 Disguise
+1220 Stun
+1230 Strike
+3000 Fire
+1250 WideStrike
+1260 SpeedGun
+1270 Golem
+1290 Penetration
+1300 Halt
+5040 Boom
+5050 Boreas
+1310 Binding
+1320 FlyingMoon
+1280 WaterElf
+1360 NightDevil
+1350 DivineHare
+1380 Dance2
+1385 Dance3
+1390 Dance4
+1395 Dance5
+1400 Dance6
+1405 Dance7 
+1410 Dance8
+5010 Snow
+5020 StrandedMonster
+5001 SpeedLightning
+5030 Phoenix
+8000 RapidFire
+8001 Scatter
+8030 ArrowRain
+8031 Scatter2
+8032 Scatter3
+8033 Scatter4
+8034 Scatter5
+8035 Scatter6
+8036 Guard`sSpell
+8002 Fly
+9000 Intensify
+4000 SummonGuard
+4010 SummonBat
+4020 SummonBatBoss
+4030 StandinBat
+4040 BloodyBat
+4050 BloodyBat2
+4060 FireEvil
+4070 Skeleton
+10200 Poison
+10201 Cure
+10202 Meditation
+10203 MagicShield
+10010 Poison0
+10011 Poison1
+10012 Poison2 
+10013 Poison3
+10015 IcyArrow0
+10016 IcyArrow1
+10017 IcyArrow2
+10020 Bolt0
+10021 Bolt1
+10022 Bolt2
+10023 Bolt3
+10030 Bolt10
+10031 Bolt11
+10032 Bolt12
+10033 Bolt13
+10040 Bolt20
+10041 Bolt21
+10042 Bolt22
+10043 Bolt23
+10050 ArrowStorm0
+10051 ArrowStorm11
+10052 ArrowStorm21
+10053 ArrowStorm31
+10060 ArrowStorm10
+10061 ArrowStorm11
+10062 ArrowStorm12
+10063 ArrowStorm13
+10070 ArrowStorm20
+10071 ArrowStorm21
+10072 ArrowStorm22
+10073 ArrowStorm23
+10080 ArrowStorm30
+10081 ArrowStorm31
+10082 ArrowStorm32
+10083 ArrowStorm33
+10100 Rocket0
+10101 Rocket1
+10102 Rocket2 
+10103 Rocket3
+10110 Rocket10
+10111 Rocket11 
+10112 Rocket12 
+10113 Rocket13 
+10120 Rocket20 
+10121 Rocket21
+10122 Rocket22
+10123 Rocket23
+10130 Rocket30
+10131 Rocket31
+10132 Rocket32
+10133 Rocket33
+10140 Rocket40
+10141 Rocket41
+10142 Rocket42
+10143 Rocket43
+10150 Rocket50
+10151 Rocket51
+10152 Rocket52
+10153 Rocket53
+10160 Rocket60
+10161 Rocket61
+10162 Rocket62
+10163 Rocket63
+10170 Rocket70
+10171 Rocket71
+10172 Rocket72
+10173 Rocket73
+10180 Rocket80 
+10181 Rocket81 
+10182 Rocket82
+10183 Rocket83
+5000 FreezingArrow
+5002 Poison
+7000 Seizer 
+7030 Celestial
+7100 Seizer0 
+7101 Seizer1
+7102 Seizer2 
+7103 Seizer3 
+7104 Seizer4 
+7105 Seizer5 
+7106 Seizer6 
+7107 Seizer7 
+7108 Seizer8 
+7109 Seizer9 
+7010 Earthquake
+7020 Rage
+7130 Poison10 
+7131 Poison11
+7132 Poison12 
+7133 Poison13
+7134 Poison14
+7135 Poison15
+7136 Poison16
+7137 Poison17
+7138 Poison18 
+7139 Poison19 
+7040 Roamer
+3000 HumanMessenger
+3001 WingedSnakeMsgr
+3002 BanditMessenger 
+3003 BanditMessenger
+3004 ElfMessenger 
+3005 MonkeyMessenger 
+3006 GiantApeMsgr 
+3007 ThunderApeMsgr
+3008 SnakemanMsgr
+3009 SandMonsterMsgr
+3010 HillMonsterMsgr
+3011 RockMonsterMsgr
+3012 BladeGhostMsgr 
+3013 BirdmanMsgr
+3014 HawMsgr
+3015 BanditMessenger
+3016 BatMessenger
+3017 BloodyBatMsgr
+3018 BullMessenger
+3019 DevilMessenger 
+3050 CruelShade
+3080 Dodge
+5100 IronShirt
+5101 IronShirt1
+5102 IronShirt2
+5103 IronShirt3 
+5104 IronShirt4
+5105 IronShirt5
+5106 IronShirt6
+5107 IronShirt7
+5108 IronShirt8
+5109 IronShirt9 
+5110 IronShirt10
+5111 IronShirt11 
+5112 IronShirt12 
+5113 IronShirt13 
+5114 IronShirt14 
+5115 IronShirt15 
+5116 IronShirt16
+5117 IronShirt17 
+5118 IronShirt18
+5119 IronShirt19
+5120 IronShirt20 
+5121 IronShirt21
+5122 IronShirt22 
+5123 IronShirt23 
+5124 IronShirt24
+5125 IronShirt25
+5126 IronShirt26 
+5127 IronShirt27 
+5128 IronShirt28 
+5129 IronShirt29
+3060 Reflect
+3090 Pervade
+3191 Pervade1
+3192 Pervade2
+3193 Pervade3
+3206 Pervade4
+3090 Pervade5
+3291 Pervade11
+3292 Pervade12
+3293 Pervade13
+3306 Pervade14
+3090 Pervade
+3091 Pervade21
+3092 Pervade22
+3093 Pervade23
+3106 Pervade24
+3095 Pervade31
+3096 Pervade32
+3097 Pervade33
+3107 Pervade34
+3099 Pervade41
+3100 Pervade42
+3101 Pervade43
+3108 Pervade44
+3103 Pervade51
+3104 Pervade52
+3105 Pervade53
+3109 Pervade54
+5130 Genius
+5131 SnakeElf
+5132 SnakeKing
+5133 GreenBat
+5134 RatElf 
+5135 Pirate
+5136 BladeDemon
+5137 BirdElf
+5138 Thief
+5139 BladeGhost
+5329 Robin
+5325 BlueCooer
+5328 RockMonster
+5326 FireSpirit
+5327 WingedSnake
+3310 CuteBunny
+3311 PlayfulBunny
+3312 CuteBunny
+4075 HellGuardian
+4075 HellGuardian
+4076 GuardingSiren
+8041 StoneMonster
+8040 Turkey
+8059 EasterRooster
+9876 Bless
+8042 FireSnake
+8043 RoaringApe
+8044 SandMonster
+8096 ElfKing 
+8097 BloodyBat
+8098 HillMonsterKing
+8099 BirdKing
+8100 WingedSnakeKing (Transform)
+8101 BlueCooer (Transform)
+8102 Wraith (Transform)
+8103 Eidolon (Transform)
+8110 Temptress (Transform)
+8111 Siren (Transform)
+8112 BlueCock (Transform)
+8113 MagentaCock (Transform)
+8114 FishA (Transform)
+8115 BrownCock (Transform)
+8116 Wraith (Transform)
+8117 PurpleRooster (Transform)
+8118 SandMonster 
+8119 RoaringApe (Transform)
+8120 Cateran (Transform)
+8121 FireSnake(Transform)
+8122 StoneMonster (Transform)
+8123 Turkey (Transform)
+8124 Snakeman (Transform)
+8125 BullDevil (Transform)
+8126 FishB (Transform)
+8127 Eidolon (Transform)
+8129 KungFuBunny (Transform)
+8130 Pheasant (Transform)
+8131 TurtleDove (Transform)
+8132 Robin (Transform)
+8133 Apparition (Transform)
+8134 WingedSnake (Transform)
+8135 Bandit (Transform)
+8136 Ratling (Transform)
+8137 Vampire (Transform)
+8138 Vampire (Transform)
+8139 Vampire (Transform)
+8140 Vampire (Transform)
+8141 Vampire (Transform)
+8142 Vampire (Transform)
+8143 Vampire (Transform)
+8144 Vampire (Transform)
+3313 FowlEmpress (Transform)
+3321 Piglet (Transform)
+8214 ChristmasElf (Transform)
+8204 PinkPiglet (Transform)
+8210 PinkPiglet (Transform)
+3320 tuzi (Transform)
+8212 yishe (Transform)
+8258 WeirdPumpkin (Transform)
+8259 ElfMessenger (Transform)
+8260 EvilSnakeMsgr (Transform)
+8261 ScriptElf (Transform)
+8262 BloodyBat (Transform)
+8068 FishLady (Transform)
+8270 Pheasant (Transform)
+8271 Turtledove (Transform)
+8272 Robin (Transform)
+8273 Apparition (Transform)
+8274 WingedSnake (Transform)
+8275 Bandit (Transform)
+8276 Ratling (Transform)
+6000 TwofoldBlades
+6001 ToxicFog
+6002 PoisonStar
+6010 ShurikenVortex
+6011 FatalStrike

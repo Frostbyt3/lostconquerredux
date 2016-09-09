@@ -733,6 +733,7 @@ namespace Redux.Game_Server
             Character.QuizPoints = 0;
             Character.VirtuePoints = 0;
             Character.Online = false;
+            Character.Newbie = 1;
             Character.OfflineTGEntered = DateTime.MinValue;
             var stats = ServerDatabase.Context.Stats.GetByProfessionAndLevel((ushort)ProfessionType, (byte)(Level < 121 ? Level : 120));
             if (stats != null)
@@ -790,7 +791,7 @@ namespace Redux.Game_Server
                     CreateDBItem(1000000);
 
             Database.ServerDatabase.Context.Characters.CreateEntry(Character);
-            Character.HeavenBlessExpires = DateTime.Now.AddDays(30);
+            Character.HeavenBlessExpires = DateTime.Now.AddDays(3); // Let's give new players 3 days worth of Heaven Blessing. FO FREE?!
             Send(UpdatePacket.Create(UID, Enum.UpdateType.HeavenBlessing, Common.SecondsFromNow(Character.HeavenBlessExpires)));
             Send(UpdatePacket.Create(UID, Enum.UpdateType.SizeAdd, 2));
             Send(UpdatePacket.Create(UID, Enum.UpdateType.OnlineTraining, 0));
@@ -1265,6 +1266,15 @@ namespace Redux.Game_Server
                 {
                     Character.LuckyTimeRemaining--;
                     Send(UpdatePacket.Create(UID, UpdateType.LuckyTime, Character.LuckyTimeRemaining * 1000));
+                }
+                #endregion
+
+                #region MonsterHunter
+                if (IsHunter == 1)
+                {
+                    var monster = ServerDatabase.Context.Monstertype.GetById(MonsterID);
+                    //SendMessage("You currently have " + MonsterKills + "KOs of the required " + MonsterCount + " from " + monster.Name + "!");
+                    SendMessage("- " + monster.Name + " = " + MonsterKills + " / " + MonsterCount + "", ChatType.SynWarFirst);
                 }
                 #endregion
             }

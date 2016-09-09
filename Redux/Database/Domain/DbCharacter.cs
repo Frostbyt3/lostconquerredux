@@ -53,6 +53,8 @@ namespace Redux.Database.Domain
         public virtual uint MonsterID { get; set; }
         public virtual uint MonsterKills { get; set; }
         public virtual uint MonsterCount { get; set; }
+
+        public virtual uint Newbie { get; set; }
     }
 }
 

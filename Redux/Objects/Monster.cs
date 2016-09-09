@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Redux.Database.Domain;
+using Redux.Database.Repositories;
+using Redux.Login_Server;
 using Redux.Managers;
 using Redux.Packets.Game;
 using Redux.Space;
 using Redux.Enum;
+using Redux.Database;
 
 namespace Redux.Game_Server
 {
@@ -142,6 +145,29 @@ namespace Redux.Game_Server
                     }
             }
             base.Kill(_dieType, _attacker);
+        }
+
+        public void MonsterHunter(uint _attacker)
+        {
+            var killer = PlayerManager.GetUser(_attacker);
+            if (BaseMonster.ID == 1 && killer.Newbiequest == 1 && killer.Character.Newbie == 1)
+            {
+                killer.newbiekills++;
+                killer.SendMessage("You have killed a Pheasant!", ChatType.Talk2);
+            }
+            if (BaseMonster.ID == killer.MonsterID && killer.IsHunter == 1)
+            {
+                var monster = ServerDatabase.Context.Monstertype.GetById(killer.MonsterID);
+                if (killer.MonsterKills != killer.MonsterCount)
+                {
+                    killer.MonsterKills++;
+                }
+                else
+                {
+                    killer.IsHunter = 2;
+                    killer.SendMessage("You have finished your quest to kill " + monster.Name + ". Please go turn in your quest.");
+                }
+            }
         }
 
         private void GenerateDrops(uint _killer)
