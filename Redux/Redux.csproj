@@ -311,7 +311,7 @@
     <Compile Include="Npcs\Market\Lottery Npcs\[5670] BOX2.cs" />
     <Compile Include="Npcs\Market\Lottery Npcs\[5671] BOX3.cs" />
     <Compile Include="Npcs\Market\[300000] Shelby.cs" />
-    <Compile Include="Npcs\Market\[300500] Eternity.cs" />
+    <Compile Include="Npcs\Market\[300500] Eternity - First Reborn.cs" />
     <Compile Include="Npcs\Market\[3381] SurgeonMiracle.cs" />
     <Compile Include="Npcs\Market\[350050] CelestealTao.cs" />
     <Compile Include="Npcs\Market\[1234] Ethereal.cs" />
@@ -323,7 +323,7 @@
     <Compile Include="Npcs\Market\[10065] Godly Artisan.cs" />
     <Compile Include="Npcs\Market\[390] LoveStone.cs" />
     <Compile Include="Npcs\Market\[35016] WuxingOven.cs" />
-    <Compile Include="Npcs\Market\[3600] Alex - First Reborn.cs" />
+    <Compile Include="Npcs\Market\[3600] Alex - Second Reborn.cs" />
     <Compile Include="Npcs\Market\[2071] CPAdmin.cs" />
     <Compile Include="Npcs\Market\[5004] MillionareLee.cs" />
     <Compile Include="Npcs\Market\[923] LadyLuck.cs" />

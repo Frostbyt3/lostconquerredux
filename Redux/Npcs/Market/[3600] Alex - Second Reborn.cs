@@ -28,7 +28,7 @@ namespace Redux.Npcs
             switch (_linkback)
             {
                 case 0:
-                    if (_client.RebornCount == 0)
+                    if (_client.RebornCount == 1)
                     {
                         if (_client.ProfessionLevel == 5 && _client.Level >= (_client.ProfessionType == Enum.ProfessionType.WaterTaoist ? 110 : 120))
                         {
@@ -43,14 +43,14 @@ namespace Redux.Npcs
                             AddOption("I will.", 255);
                         }
                     }
-                    else
+                    else if (_client.RebornCount == 2)
                     {
                         AddText("I have helped you as much as I can. Even heroes have their limits.");
                         AddOption("Thanks", 255);
                     }
                     break;
                 case 1:
-                    if (_client.RebornCount == 0 && _client.Level >= (_client.ProfessionType == Enum.ProfessionType.WaterTaoist ? 110 : 120))
+                    if (_client.RebornCount == 1 && _client.Level >= (_client.ProfessionType == Enum.ProfessionType.WaterTaoist ? 110 : 120))
                     {
                         AddText("By accepting the gift of rebirth, you will start your life again. ");
                         AddText("You can unlock great strength as well as new skills in the process! ");
@@ -60,12 +60,12 @@ namespace Redux.Npcs
                     }
                     else
                     {
-                        AddText("Ooh my! Lets not get ahead of ourselves. You are not yet ready to become reborn.");
+                        AddText("Ooh my! Lets not get ahead of ourselves. You are not yet ready for your second rebirth.");
                         AddOption("Sorry.", 255);
                     }
                     break;
                 case 2:
-                    if (_client.HasItem(Constants.CELESTIAL_STONE_ID))
+                    if (_client.HasItem(Constants.EXEMPTION_TOKEN_ID))
                     {
                         AddText("You can choose to either receive a gem of great power or bless your equipment for even greater strength. Which would you like?");
                         AddOption("Blessed Rebirth", 3);
@@ -74,7 +74,7 @@ namespace Redux.Npcs
                     }
                     else
                     {
-                        AddText("Rebirth requires the unlocking of great power. Please make sure you have a CelestialStone before coming to me.");
+                        AddText("Your second rebirth requires the unlocking of great power. Please make sure you have a ExemptionToken before coming to me.");
                         AddOption("Sorry.", 255);
                     }
                     break;
@@ -121,11 +121,11 @@ namespace Redux.Npcs
                 case 13:
                 case 14:
                 case 15:
-                    if (_client.ProfessionLevel ==5 && _client.RebornCount == 0 && _client.Level >= (_client.ProfessionType == Enum.ProfessionType.WaterTaoist ? 110 : 120))
+                    if (_client.ProfessionLevel == 5 && _client.RebornCount == 1 && _client.Level >= (_client.ProfessionType == Enum.ProfessionType.WaterTaoist ? 110 : 120))
                     {
-                        if (_client.HasItem(Constants.CELESTIAL_STONE_ID))
+                        if (_client.HasItem(Constants.EXEMPTION_TOKEN_ID))
                         {
-                            _client.DeleteItem(Constants.CELESTIAL_STONE_ID); 
+                            _client.DeleteItem(Constants.EXEMPTION_TOKEN_ID); 
                             if (isBlessedRebirth)//Bless random item.
                             {
                                 Structures.ConquerItem item;
@@ -250,31 +250,31 @@ namespace Redux.Npcs
                             }
                             #endregion
 
-                            _client.RebornCount = 1;
+                            _client.RebornCount = 2;
                             _client.Send(new UpdatePacket(_client.UID, UpdateType.Profession, _client.Character.Profession));
                             _client.Send(new UpdatePacket(_client.UID, UpdateType.Reborn, _client.RebornCount));
-                            _client.SpawnPacket.RebornCount = 1;
+                            _client.SpawnPacket.RebornCount = 2;
                             _client.SendToScreen(_client.SpawnPacket, true);
                             _client.SetLevel(15);
                             _client.Experience = 0;
                             _client.Recalculate(true);
-                            Managers.PlayerManager.SendToServer(new TalkPacket(ChatType.GM, _client.Name + " has been reborned successfully. Congratulations!"));
+                            _client.CombatManager.LearnNewSkill(SkillID.Bless);
+                            Managers.PlayerManager.SendToServer(new TalkPacket(ChatType.GM, _client.Name + " has been achieved second rebirth. Congratulations!"));
                             _client.Save();
                         }
                         else
                         {
-                            AddText("Rebirth requires the unlocking of great power. Please make sure you have a CelestialStone before coming to me.");
+                            AddText("Your second rebirth requires the unlocking of great power. Please make sure you have a ExemptionToken before coming to me.");
                             AddOption("Sorry.", 255);
                         }
 
                     }
                     else
                     {
-                        AddText("Lets not get ahead of ourselves! You are not ready to achieve rebirth. Please come back later.");
+                        AddText("Lets not get ahead of ourselves! You are not ready to be reborn a second time!");
                         AddOption("Sorry.", 255);
                     }
                     break;
-
             }
             AddFinish();
             Send();
