@@ -29,7 +29,8 @@ namespace Redux.Npcs
                 case 0:
                     AddText("Where are you heading for? I can teleport you into an dark place full of caves and strong monsters for  VirtuePoints .");
                     AddText("Make sure to gather all diamonds dropped by monsters as I will reward you nicely for them !");
-                    AddOption("Send me there!", 1);
+                    AddOption("Send me! (2000 VPs)", 1);
+                    AddOption("Send me! (50 CPs)", 10);
                     AddOption("I have some diamonds", 5);
                     AddOption("Just passing by.", 255);
                     break;
@@ -37,11 +38,12 @@ namespace Redux.Npcs
                     if (_client.VirtuePoints >= 2000)
                     {
                         _client.VirtuePoints -= 2000;
-                        _client.ChangeMap(1351, 100, 100);
+                        _client.ChangeMap(1351, 14, 126);
                     }
                     else
                     {
-                        AddText("Sorry, you do not have enough VirtuePoints to enter!");
+                        AddText("Sorry, you do not have enough VirtuePoints to enter, ");
+                        AddText("but I can send you for 50 Conquer Points instead.");
                         AddOption("I see.", 255);
                     }
                     break;
@@ -117,7 +119,18 @@ namespace Redux.Npcs
 
                     }
                     break;
-
+                case 10:
+                    if (_client.CP >= 50)
+                    {
+                        _client.CP -= 50;
+                        _client.ChangeMap(1351, 14, 126);
+                    }
+                    else
+                    {
+                        AddText("Sorry, you do not have enough Conquer Points to enter.");
+                        AddOption("I see.", 255);
+                    }
+                    break;
             }
             AddFinish();
             Send();
